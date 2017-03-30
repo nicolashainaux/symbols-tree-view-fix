@@ -6,9 +6,9 @@ TagParser = require './tag-parser'
 SymbolsContextMenu = require './symbols-context-menu'
 
 module.exports =
-  class SymbolsTreeView extends View
+  class SymbolsTreeViewFix extends View
     @content: ->
-      @div class: 'symbols-tree-view tool-panel focusable-panel'
+      @div class: 'symbols-tree-view-fix tool-panel focusable-panel'
 
     initialize: ->
       @treeView = new TreeView
@@ -16,7 +16,7 @@ module.exports =
 
       @cachedStatus = {}
       @contextMenu = new SymbolsContextMenu
-      @autoHideTypes = atom.config.get('symbols-tree-view.zAutoHideTypes')
+      @autoHideTypes = atom.config.get('symbols-tree-view-fix.zAutoHideTypes')
 
       @treeView.onSelect ({node, item}) =>
         if item.position.row >= 0 and editor = atom.workspace.getActiveTextEditor()
@@ -41,12 +41,12 @@ module.exports =
 
           jQuery(from).animate(to, duration: @animationDuration, step: step, done: done)
 
-      atom.config.observe 'symbols-tree-view.scrollAnimation', (enabled) =>
+      atom.config.observe 'symbols-tree-view-fix.scrollAnimation', (enabled) =>
         @animationDuration = if enabled then 300 else 0
 
       @minimalWidth = 5
-      @originalWidth = atom.config.get('symbols-tree-view.defaultWidth')
-      atom.config.observe 'symbols-tree-view.autoHide', (autoHide) =>
+      @originalWidth = atom.config.get('symbols-tree-view-fix.defaultWidth')
+      atom.config.observe 'symbols-tree-view-fix.autoHide', (autoHide) =>
         unless autoHide
           @width(@originalWidth)
         else
@@ -111,7 +111,7 @@ module.exports =
       else
         @cachedStatus[editor] = {nowTypeStatus: {}, nowSortStatus: [false]}
         @cachedStatus[editor].nowTypeStatus[type] = true for type in types
-        @sortByNameScopes = atom.config.get('symbols-tree-view.sortByNameScopes')
+        @sortByNameScopes = atom.config.get('symbols-tree-view-fix.sortByNameScopes')
         if @sortByNameScopes.indexOf(@getScopeName()) != -1
           @cachedStatus[editor].nowSortStatus[0] = true
           @treeView.sortByName()
@@ -156,7 +156,7 @@ module.exports =
         @removeEventForEditor()
         @populate()
 
-      @onChangeAutoHide = atom.config.observe 'symbols-tree-view.autoHide', (autoHide) =>
+      @onChangeAutoHide = atom.config.observe 'symbols-tree-view-fix.autoHide', (autoHide) =>
         unless autoHide
           @off('mouseenter mouseleave')
         else
