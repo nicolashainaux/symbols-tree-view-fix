@@ -1,7 +1,7 @@
 # symbols-tree-view-fix package
 
-Forked from https://atom.io/packages/symbols-tree-view. I am not the original author. Source code is the same, but will try to keep deprecation warnings fixed asap.
-Another forked package is available at https://atom.io/packages/symbols-tree-nav, what adds new options. May be more experimental!
+Disclaimer: this package has been forked from https://atom.io/packages/symbols-tree-view. I am not the original author. Source code is the same, but will try to keep deprecation warnings fixed asap.
+Another forked package is available at https://atom.io/packages/symbols-tree-nav, what adds new options. May be more experimental! (Do not enable both packages in the same time)
 
 The rest of this README will remain untouched.
 
