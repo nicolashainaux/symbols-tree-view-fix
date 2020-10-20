@@ -1,6 +1,6 @@
 # symbols-tree-view-fix package
 
-**REPLACED** symbols-tree-view-fix is replaced by [symbols-tree-nav](https://atom.io/packages/symbols-tree-nav). Last version of symbols-tree-view-fix will be the 13.4.
+**REPLACED** symbols-tree-view-fix is replaced by [symbols-tree-nav](https://atom.io/packages/symbols-tree-nav). Last version of symbols-tree-view-fix will be the 13.5.
 
 **DISCLAIMER** this package has been forked from https://atom.io/packages/symbols-tree-view. I am not the original author. Source code is the same, except for a number of fixes (deprecation warnings and possible bugfixes).
 
